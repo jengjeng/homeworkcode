@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import data from './data.js'
-import codemirror from './CodeMirror.vue'
+import data from './data/data.js'
+import codemirror from './components/CodeMirror.vue'
 export default {
   data () {
     return {
