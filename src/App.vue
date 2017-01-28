@@ -4,8 +4,8 @@
       <el-col :xs="8" :sm="6" :md="4" :lg="4" class="full-height">
         <el-menu @select="taskSelect" mode="vertical" default-active="0" class="el-menu-vertical full-height layout-tab" theme="dark">
           <div class="logo">
-            <img src="https://firebasestorage.googleapis.com/v0/b/acourse-d9d0a.appspot.com/o/user%2FAdlNpDntmLYMTOe2zzdXZX5Dv4x1%2F1480173528552?alt=media&token=46b79a10-f81f-4df6-8be6-313c10bae243">
-            <h1 class="username text-center color-gray">{{ data.username }}</h1>
+            <img src="https://avatars2.githubusercontent.com/u/6948085?v=3&s=460">
+            <h2 class="username text-center color-gray">{{ data.username }}</h2>
           </div>
           <el-menu-item-group title="Tasks">
             <el-menu-item v-for="(task, i) in data.tasks" :index="i.toString()"><i class="el-icon-edit"></i>{{task.name}}</el-menu-item>
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    taskSelect(key, keyPath) {
+    taskSelect (key, keyPath) {
       this.current = +key
     }
   },

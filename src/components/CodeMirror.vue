@@ -8,7 +8,7 @@
     props: ['code', 'options'],
     mounted () {
       this.$nextTick(() => {
-        hljs.highlightBlock(this.$el.querySelector('code'))
+        window.hljs.highlightBlock(this.$el.querySelector('code'))
       })
     }
   }
