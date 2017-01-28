@@ -1,20 +1,28 @@
 <template>
-  <div class="full-height"></div>
+  <pre>
+    <code :class="this.options.language">{{this.code}}</code>
+  </pre>
 </template>
 <script>
   export default {
     props: ['code', 'options'],
     mounted () {
       this.$nextTick(() => {
-        const CodeMirror = window.CodeMirror
-        var myCodeMirror = CodeMirror(this.$el, {
-          value: this.code.trim(),
-          readOnly: true,
-          lineNumbers: true,
-          matchBrackets: true,
-          mode: "text/x-c++src"
-        })
+        hljs.highlightBlock(this.$el.querySelector('code'))
       })
     }
   }
 </script>
+<style scoped>
+  pre {
+    margin: 0;
+  }
+  pre > code {
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0;
+    margin-top: -1em;
+    background: transparent;
+    overflow: visible;
+  }
+</style>

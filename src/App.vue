@@ -13,16 +13,16 @@
         </el-menu>
       </el-col>
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
-        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab">
-          <el-tab-pane v-for="file in task.files" :label="file.name" class="full-height">
-            <codemirror :code="file.content" :options="data.codemirror" class="full-height"></codemirror>
+        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab layout-wrapper">
+          <el-tab-pane v-for="file in task.files" :label="file.name">
+            <codemirror :code="file.content" :options="data.codemirror"></codemirror>
           </el-tab-pane>
         </el-tabs>
       </el-col>
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
-        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab">
+        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab output-tab layout-wrapper">
           <el-tab-pane label="Output">
-            <pre>{{task.output.trim()}}</pre>
+            <pre class="output" v-html="task.output"></pre>
           </el-tab-pane>
         </el-tabs>
       </el-col>
@@ -54,8 +54,8 @@ export default {
 <style>
 html,
 body {
+  overflow: hidden;
   font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
-  overflow: auto;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
@@ -73,26 +73,43 @@ body,
   font-size: 1em;
 }
 
+.layout-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+.layout-wrapper .el-tabs__content {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
 .text-center {
   text-align: center;
 }
 
-.full-height,
-.el-tabs__content,
-.CodeMirror {
+.full-height {
   height: 100%;
 }
 
 .layout-tab {
   border-radius: 0;
   box-shadow: none;
-  overflow: hidden;
+  overflow: auto;
   border-top: 0;
   border-bottom: 0;
 }
 .code-tab .el-tabs__content {
-  padding-left: 0;
-  /*padding-top: 0;*/
+  padding: 0;
+  padding-left: 0.5em;
+}
+.output-tab {
+  border-left: 0;
+}
+
+.layout > .el-col,
+.el-tabs--border-card,
+.el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active {
+  background: #fafafa;
 }
 
 .logo {
@@ -108,6 +125,10 @@ body,
 
 .color-gray {
   color: #97a8be;
+}
+.output {
+  color: #222;
+  font-weight: 700;
 }
 
 </style>
