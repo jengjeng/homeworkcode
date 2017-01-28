@@ -4,7 +4,7 @@
       <el-col :xs="8" :sm="6" :md="4" :lg="4" class="full-height">
         <el-menu @select="taskSelect" mode="vertical" default-active="0" class="el-menu-vertical full-height layout-tab" theme="dark">
           <div class="logo">
-            <img src="https://avatars2.githubusercontent.com/u/6948085?v=3&s=460">
+            <img :src="data.logo">
             <h2 class="username text-center color-gray">{{ data.username }}</h2>
           </div>
           <el-menu-item-group title="Tasks">
@@ -15,7 +15,7 @@
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
         <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab layout-wrapper">
           <el-tab-pane v-for="file in task.files" :label="file.name">
-            <codemirror :code="file.content" :options="data.codemirror"></codemirror>
+            <codemirror :code="file.content" :language="data.language"></codemirror>
           </el-tab-pane>
         </el-tabs>
       </el-col>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import data from './data/data.js'
+import data from './data.js'
 import codemirror from './components/CodeMirror.vue'
 export default {
   data () {

@@ -1,11 +1,11 @@
 <template>
   <pre>
-    <code :class="this.options.language">{{this.code}}</code>
+    <code :class="this.language">{{this.code}}</code>
   </pre>
 </template>
 <script>
   export default {
-    props: ['code', 'options'],
+    props: ['code', 'language'],
     mounted () {
       this.$nextTick(() => {
         window.hljs.highlightBlock(this.$el.querySelector('code'))
