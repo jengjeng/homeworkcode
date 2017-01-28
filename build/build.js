@@ -33,4 +33,6 @@ webpack(webpackConfig, function (err, stats) {
     chunks: false,
     chunkModules: false
   }) + '\n')
+
+  rm('-rf', 'dist/static/')
 })
