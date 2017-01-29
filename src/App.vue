@@ -78,7 +78,7 @@ body,
   line-height: 1.2em;
 }
 .code {
-  font-size: 1.1em;
+  font-size: 1.05em;
   /*font-weight: 600;*/
 }
 
