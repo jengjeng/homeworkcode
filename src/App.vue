@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="theme-light">
     <el-row class="layout">
       <el-col :xs="8" :sm="6" :md="4" :lg="4" class="full-height">
         <el-menu @select="taskSelect" mode="vertical" default-active="0" class="el-menu-vertical full-height layout-tab" theme="dark">
@@ -15,14 +15,14 @@
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
         <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab layout-wrapper">
           <el-tab-pane v-for="file in task.files" :label="file.name">
-            <codemirror :code="file.content" :language="data.language"></codemirror>
+            <codemirror :code="file.content" :language="data.language" class="code"></codemirror>
           </el-tab-pane>
         </el-tabs>
       </el-col>
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
         <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab output-tab layout-wrapper">
           <el-tab-pane label="Output">
-            <pre class="output" v-html="task.output"></pre>
+            <pre class="output code" v-html="task.output"></pre>
           </el-tab-pane>
         </el-tabs>
       </el-col>
@@ -57,7 +57,7 @@ body {
   overflow: hidden;
   font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
   font-weight: 400;
-  -webkit-font-smoothing: antialiased;
+  /*-webkit-font-smoothing: antialiased;*/
 }
 
 html,
@@ -69,6 +69,56 @@ body,
   width: 100%;
   height: 100%;
 }
+
+.color-gray {
+  color: #97a8be;
+}
+.code-tab {
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.2em;
+}
+.code {
+  font-size: 1.1em;
+  /*font-weight: 600;*/
+}
+
+.layout > .el-col,
+.el-tabs--border-card,
+.el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active {
+  background: #fafafa;
+}
+.output {
+  color: #222;
+}
+
+
+.theme-dark .el-menu--dark {
+  background: #1F2D3D;
+}
+.theme-dark .layout > .el-col,
+.theme-dark .el-tabs--border-card,
+.theme-dark .el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active {
+  background: #1F2D3D;
+}
+.theme-dark .el-tabs--border-card>.el-tabs__header {
+  background: #324057;
+}
+.theme-dark .el-tabs--border-card {
+  border: 1px solid #475669;
+}
+.theme-dark .el-tabs__header {
+  border-bottom: 1px solid #475669;
+}
+.theme-dark .el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active:last-child {
+  border-right-color: #475669;
+}
+.theme-dark .el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active:first-child {
+  border-left-color: #475669;
+}
+.theme-dark .output {
+  color: #fff;
+}
+
 .el-menu-item, .el-submenu__title, .el-menu-item-group__title, .el-tabs {
   font-size: 1em;
 }
@@ -92,24 +142,19 @@ body,
 }
 
 .layout-tab {
-  border-radius: 0;
-  box-shadow: none;
-  overflow: auto;
-  border-top: 0;
-  border-bottom: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: auto !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 .code-tab .el-tabs__content {
   padding: 0;
   padding-left: 0.5em;
 }
 .output-tab {
-  border-left: 0;
-}
-
-.layout > .el-col,
-.el-tabs--border-card,
-.el-tabs--border-card>.el-tabs__header>.el-tabs__item.is-active {
-  background: #fafafa;
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
 
 .logo {
@@ -121,14 +166,6 @@ body,
   width: 100%;
   max-width: 250px;
   margin: auto;
-}
-
-.color-gray {
-  color: #97a8be;
-}
-.output {
-  color: #222;
-  font-weight: 700;
 }
 
 </style>

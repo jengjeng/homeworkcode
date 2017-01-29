@@ -19,7 +19,6 @@
   }
   pre > code {
     font-size: 1em;
-    font-weight: 700;
     margin: 0;
     margin-top: -1em;
     background: transparent;
