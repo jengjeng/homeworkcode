@@ -1,32 +1,44 @@
 #include <stdio.h>
 #include <string.h>
+#include <conio.h>
 
-#define is(a,b) (!strcmp(a,b))
+int stringMatch(char str[100], char str2[100]) {
+  return strcmp(str, str2) == 0;
+}
 
-int main () {
-  char compound1[9], compound2[9], status[6];
-  int atom, type = 0;
-  printf("Enter compound of matter (carbon/nitrogen/hydrogen) : ");
-  scanf("%s", compound1);
-  printf("Have more? (carbon/nitrogen/hydrogen/no) : ");
-  scanf("%s", compound2);
-  printf("Number of atom (4/5/6) : ");
-  scanf("%d", &atom);
-  printf("Status of matter (gas/liquid/solid) : ");
-  scanf("%s", status);
-  if (is(compound1, "carbon") && atom == 5 && is(status, "gas"))
-    type = 1;
-  else if (is(compound1, "carbon") && atom == 6 && is(status, "liquid"))
-    type = 2;
-  else if (is(compound1, "nitrogen") && atom == 6 && is(status, "gas"))
-    type = 3;
-  else if (is(compound1, "nitrogen") && atom == 4 && is(status, "solid"))
-    type = 4;
-  if (type == 1 && is(compound2, "hydrogen"))
-    type = 5;
-  if (type == 0)
-    printf("\n\tThis element is type (unknown)\n");
+int main()
+{
+  char id[100], password[100], temp[100];
+  int i;
+  printf("------- Register -------\n");
+  printf("Enter your ID: ");
+  scanf("%s", id);
+  printf("Enter your password: ");
+  scanf("%s", password);
+  printf("\n");
+  printf("------- Login -------\n");
+  printf("Enter your ID: ");
+  scanf("%s", temp);
+  
+  printf("Enter your password: ");
+  for (i = 0; temp[i] = getch(), temp[i] != '\n'; i++)
+  {
+    printf("*");
+  }
+  password[i] = '\0';
+  printf("\n");
+  if (stringMatch(id, temp))
+  {
+    printf("\n\tSsuccessful Logon.");
+    printf("\n\tHello! %s", id);
+    printf("\n\tYour password : %s", password);
+  }
   else
-    printf("\n\tThis element is type %d\n", type);
+  {
+    printf("\n\tYour ID or Password isn't correct");
+    printf("\n\tPlease try again");
+  }
+  
+
   return 0;
 }

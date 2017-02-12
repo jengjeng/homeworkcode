@@ -1,14 +1,21 @@
 #include <stdio.h>
 
-#define dis(p) (p > 5000 ? .05*p : p >= 1000 ? .03*p : p > 100 ? .01*p : 0)
+#define isOdd(x) x%2==1
 
-int main () {
-  double price, discount;
-  printf("%-11s : ", "Enter price");
-  scanf("%lf", &price);
-  discount = dis(price);
-  printf("%-11s : %.2lf\n", "Price", price);
-  printf("%-11s : %.2lf\n", "Discount", discount);
-  printf("%-11s : %.2lf\n", "Total", price - discount);
+int main()
+{
+  int num[10];
+  printf("Please input 10 numbers.\n");
+  for (int i = 0; i < 10; i++)
+  {
+    printf("numbers[%d] : ", i + 1);
+    scanf("%d", &num[i]);
+  }
+  printf("Results : ");
+  for (int i = 1; i < 9; i ++)
+  {
+    if (isOdd(num[i - 1]) && isOdd(num[i + 1]))
+      printf("%d ", num[i]);
+  }
   return 0;
 }

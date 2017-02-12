@@ -1,6 +1,0 @@
-Enter compound of matter (carbon/nitrogen/hydrogen) : carbon
-Have more? (carbon/nitrogen/hydrogen/no) : hydrogen
-Number of atom (4/5/6) : 5
-Status of matter (gas/liquid/solid) : gas
-
-        This element is type 5

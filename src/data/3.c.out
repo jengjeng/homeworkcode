@@ -1,0 +1,19 @@
+Please input 5 numbers into array
+        numbers[0] : 1.2
+        numbers[1] : -56
+        numbers[2] : 0.45
+        numbers[3] : 11
+        numbers[4] : -10
+
+-------------------
+Input a number you want to find : -56
+        You found a number -56.00 at address 0x7fff5a5b87d8
+Do you want to find more? [Y/N] : Y
+Input a number you want to find : 23
+        Cannot find the matched data.
+Do you want to find more? [Y/N] : y
+Input a number you want to find : 0.45
+        You found a number 0.45 at address 0x7fff5a5b87e0
+Do you want to find more? [Y/N] : N
+
+Thank you for using my program!

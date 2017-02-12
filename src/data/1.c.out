@@ -1,0 +1,11 @@
+------- Register -------
+Enter your ID: 1234
+Enter your password: abcd
+
+------- Login -------
+Enter your ID: 1234
+Enter your password: ****
+
+        Ssuccessful Logon.
+        Hello! 1234
+        Your password : abcd

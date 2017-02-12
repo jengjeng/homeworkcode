@@ -5,7 +5,7 @@ export default {
   tasks: [
     {
       name: 'Homework 1',
-      output: require('raw!./data/1.out.txt'),
+      output: require('raw!./data/1.c.out'),
       files: [
         {
           name: 'main.c',
@@ -14,7 +14,7 @@ export default {
       ]
     }, {
       name: 'Homework 2',
-      output: require('raw!./data/2.out.txt'),
+      output: require('raw!./data/2.c.out'),
       files: [
         {
           name: 'main.c',
@@ -23,20 +23,11 @@ export default {
       ]
     }, {
       name: 'Homework 3',
-      output: require('raw!./data/3.out.txt'),
+      output: require('raw!./data/3.c.out'),
       files: [
         {
           name: 'main.c',
           content: require('raw!./data/3.c')
-        }
-      ]
-    }, {
-      name: 'Homework 4',
-      output: require('raw!./data/4.out.txt'),
-      files: [
-        {
-          name: 'main.c',
-          content: require('raw!./data/4.c')
         }
       ]
     }
