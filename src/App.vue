@@ -13,14 +13,14 @@
         </el-menu>
       </el-col>
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
-        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab layout-wrapper">
+        <el-tabs v-show="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab code-tab layout-wrapper">
           <el-tab-pane v-for="file in task.files" :label="file.name">
             <codemirror :code="file.content" :language="data.language" class="code"></codemirror>
           </el-tab-pane>
         </el-tabs>
       </el-col>
       <el-col :xs="8" :sm="9" :md="10" :lg="10" class="full-height">
-        <el-tabs v-if="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab output-tab layout-wrapper">
+        <el-tabs v-show="i === current" v-for="(task, i) in data.tasks" type="border-card" class="full-height layout-tab output-tab layout-wrapper">
           <el-tab-pane label="Output">
             <pre class="output code" v-html="task.output"></pre>
           </el-tab-pane>
